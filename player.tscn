@@ -1,0 +1,98 @@
+[gd_scene load_steps=13 format=3 uid="uid://tf8himqjpgbl"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_wevxs"]
+[ext_resource type="Texture2D" uid="uid://by3nlghbi71cf" path="res://Art/Player/Player.png" id="2_5e4wm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_id8lg"]
+atlas = ExtResource("2_5e4wm")
+region = Rect2(0, 0, 512, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f8t75"]
+atlas = ExtResource("2_5e4wm")
+region = Rect2(0, 0, 512, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6ypu"]
+atlas = ExtResource("2_5e4wm")
+region = Rect2(512, 0, 512, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5m5q1"]
+atlas = ExtResource("2_5e4wm")
+region = Rect2(1024, 0, 512, 768)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dckkc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_id8lg")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f8t75")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q6ypu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5m5q1")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hxh2l"]
+size = Vector2(506, 265)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0rrhv"]
+radius = 223.0
+height = 662.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wy0pk"]
+radius = 223.0
+height = 662.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dxllu"]
+radius = 223.0
+height = 662.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e78t1"]
+radius = 223.0
+height = 662.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_wevxs")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_dckkc")
+animation = &"Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 246.5)
+shape = SubResource("RectangleShape2D_hxh2l")
+
+[node name="Detection" type="Area2D" parent="."]
+
+[node name="Left" type="CollisionShape2D" parent="Detection"]
+position = Vector2(-330, 250)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_0rrhv")
+
+[node name="Right" type="CollisionShape2D" parent="Detection"]
+position = Vector2(334, 240)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_wy0pk")
+
+[node name="Up" type="CollisionShape2D" parent="Detection"]
+position = Vector2(0, -83)
+shape = SubResource("CapsuleShape2D_dxllu")
+
+[node name="Down" type="CollisionShape2D" parent="Detection"]
+position = Vector2(0, 577)
+shape = SubResource("CapsuleShape2D_e78t1")
+
+[connection signal="body_entered" from="Detection" to="." method="_on_detection_body_entered"]
+[connection signal="body_exited" from="Detection" to="." method="_on_detection_body_exited"]
