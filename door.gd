@@ -1,12 +1,10 @@
-extends Node
+extends StaticBody2D
 
-var playerID = 0
-var enemiesID = []
-var doorsID = []
-var pnjsID = []
+@export var unlocked = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$"/root/Global".doorsID.append(self.get_instance_id())
 	pass # Replace with function body.
 
 

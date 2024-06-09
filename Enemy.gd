@@ -40,6 +40,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	
+	$AnimatedSprite2D.z_index = position.y
+	
 	velocity = Vector2(0,0)
 	
 	if walking == "idle" :

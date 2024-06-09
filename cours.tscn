@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://bpe372dl6b45c"]
+
+[ext_resource type="Script" path="res://cours.gd" id="1_ib73f"]
+[ext_resource type="Texture2D" uid="uid://uw8ewdd77636" path="res://Art/Stages/Bonsai 3.png" id="2_indqd"]
+[ext_resource type="PackedScene" uid="uid://tf8himqjpgbl" path="res://player.tscn" id="3_t2f3q"]
+[ext_resource type="PackedScene" uid="uid://bxj0alvl3b14j" path="res://ui.tscn" id="5_pscon"]
+[ext_resource type="PackedScene" uid="uid://bb0e4720yqkti" path="res://door.tscn" id="6_4lnru"]
+[ext_resource type="PackedScene" uid="uid://bq1mu16kx43tp" path="res://pnj.tscn" id="6_ydi4k"]
+
+[node name="Cours" type="Node2D"]
+script = ExtResource("1_ib73f")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 27549.0
+offset_bottom = 15430.0
+texture = ExtResource("2_indqd")
+metadata/_edit_lock_ = true
+
+[node name="Player" parent="." instance=ExtResource("3_t2f3q")]
+position = Vector2(15383, 9974)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(8486, 5035)
+zoom = Vector2(0.185, 0.185)
+
+[node name="UI" parent="." instance=ExtResource("5_pscon")]
+
+[node name="Door" parent="." instance=ExtResource("6_4lnru")]
+position = Vector2(15494, 5498)
+
+[node name="PNJ" parent="." instance=ExtResource("6_ydi4k")]
+position = Vector2(12112, 7672)
+dialog = ["Hello,", "World !"]

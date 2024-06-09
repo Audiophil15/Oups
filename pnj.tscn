@@ -1,23 +1,23 @@
-[gd_scene load_steps=15 format=3 uid="uid://tf8himqjpgbl"]
+[gd_scene load_steps=14 format=3 uid="uid://bq1mu16kx43tp"]
 
-[ext_resource type="Script" path="res://Player.gd" id="1_wevxs"]
-[ext_resource type="Texture2D" uid="uid://by3nlghbi71cf" path="res://Art/Player/Player.png" id="2_5e4wm"]
-[ext_resource type="Texture2D" uid="uid://c30boj2f15gjb" path="res://Art/Textures/Grey.png" id="3_jsejs"]
+[ext_resource type="Script" path="res://pnj.gd" id="1_k1vnr"]
+[ext_resource type="Texture2D" uid="uid://by3nlghbi71cf" path="res://Art/Player/Player.png" id="2_tgn6w"]
+[ext_resource type="PackedScene" uid="uid://bxj0alvl3b14j" path="res://ui.tscn" id="3_5jrik"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_id8lg"]
-atlas = ExtResource("2_5e4wm")
+atlas = ExtResource("2_tgn6w")
 region = Rect2(0, 0, 512, 768)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f8t75"]
-atlas = ExtResource("2_5e4wm")
+atlas = ExtResource("2_tgn6w")
 region = Rect2(0, 0, 512, 768)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q6ypu"]
-atlas = ExtResource("2_5e4wm")
+atlas = ExtResource("2_tgn6w")
 region = Rect2(512, 0, 512, 768)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5m5q1"]
-atlas = ExtResource("2_5e4wm")
+atlas = ExtResource("2_tgn6w")
 region = Rect2(1024, 0, 512, 768)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dckkc"]
@@ -50,33 +50,26 @@ size = Vector2(506, 265)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0rrhv"]
 radius = 223.0
-height = 662.0
+height = 1072.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wy0pk"]
 radius = 223.0
-height = 662.0
+height = 1070.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dxllu"]
 radius = 223.0
-height = 662.0
+height = 1070.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e78t1"]
 radius = 223.0
-height = 662.0
+height = 1070.0
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ib20m"]
-texture = ExtResource("3_jsejs")
-texture_margin_left = 50.0
-texture_margin_right = 50.0
-texture_margin_bottom = 20.0
-modulate_color = Color(1, 1, 1, 0.627451)
-
-[node name="Player" type="CharacterBody2D"]
-script = ExtResource("1_wevxs")
+[node name="PNJ" type="CharacterBody2D"]
+script = ExtResource("1_k1vnr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_dckkc")
-animation = &"Run"
+animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 246.5)
@@ -85,32 +78,22 @@ shape = SubResource("RectangleShape2D_hxh2l")
 [node name="Detection" type="Area2D" parent="."]
 
 [node name="Left" type="CollisionShape2D" parent="Detection"]
-position = Vector2(-330, 250)
+position = Vector2(-540, 250)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_0rrhv")
 
 [node name="Right" type="CollisionShape2D" parent="Detection"]
-position = Vector2(334, 240)
+position = Vector2(540, 240)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_wy0pk")
 
 [node name="Up" type="CollisionShape2D" parent="Detection"]
-position = Vector2(0, -83)
+position = Vector2(0, -286)
 shape = SubResource("CapsuleShape2D_dxllu")
 
 [node name="Down" type="CollisionShape2D" parent="Detection"]
-position = Vector2(0, 577)
+position = Vector2(0, 784)
 shape = SubResource("CapsuleShape2D_e78t1")
 
-[node name="Label" type="Label" parent="."]
-offset_left = 104.0
-offset_top = 313.0
-offset_right = 476.0
-offset_bottom = 526.0
-theme_override_font_sizes/font_size = 156
-theme_override_styles/normal = SubResource("StyleBoxTexture_ib20m")
-text = "Steal"
-horizontal_alignment = 1
-
-[connection signal="body_entered" from="Detection" to="." method="_on_detection_body_entered"]
-[connection signal="body_exited" from="Detection" to="." method="_on_detection_body_exited"]
+[node name="UI" parent="." instance=ExtResource("3_5jrik")]
+process_mode = 3
