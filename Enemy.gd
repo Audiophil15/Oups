@@ -4,7 +4,10 @@ var vel = Vector2(0,0)
 var speed = 750
 var direction
 var walking
+
 @export var item = ""
+
+signal playerfound
 
 var directionsprobas = {
 	"up":{
@@ -40,7 +43,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	
-	$AnimatedSprite2D.z_index = position.y
+	z_index = int(position.y)
 	
 	velocity = Vector2(0,0)
 	
@@ -84,8 +87,17 @@ func _process(delta):
 		$AnimatedSprite2D.play("Idle")
 
 	position+=velocity
+	move_and_slide()
 
 func getStolen() :
 	var r = item
 	item = ""
 	return r
+
+
+func _on_detection_body_entered(body):
+	print(body, " detected !")
+	if body.get_instance_id() == $"/root/Global".playerID :
+		print("player found !")
+		emit_signal("playerfound")
+	pass # Replace with function body.

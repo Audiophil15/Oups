@@ -72,6 +72,8 @@ texture_margin_bottom = 20.0
 modulate_color = Color(1, 1, 1, 0.627451)
 
 [node name="Player" type="CharacterBody2D"]
+z_as_relative = false
+y_sort_enabled = true
 script = ExtResource("1_wevxs")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

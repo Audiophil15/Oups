@@ -1,8 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://bq1mu16kx43tp"]
+[gd_scene load_steps=13 format=3 uid="uid://bq1mu16kx43tp"]
 
 [ext_resource type="Script" path="res://pnj.gd" id="1_k1vnr"]
 [ext_resource type="Texture2D" uid="uid://by3nlghbi71cf" path="res://Art/Player/Player.png" id="2_tgn6w"]
-[ext_resource type="PackedScene" uid="uid://bxj0alvl3b14j" path="res://ui.tscn" id="3_5jrik"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_id8lg"]
 atlas = ExtResource("2_tgn6w")
@@ -94,6 +93,3 @@ shape = SubResource("CapsuleShape2D_dxllu")
 [node name="Down" type="CollisionShape2D" parent="Detection"]
 position = Vector2(0, 784)
 shape = SubResource("CapsuleShape2D_e78t1")
-
-[node name="UI" parent="." instance=ExtResource("3_5jrik")]
-process_mode = 3

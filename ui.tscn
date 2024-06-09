@@ -1,26 +1,49 @@
-[gd_scene load_steps=2 format=3 uid="uid://bxj0alvl3b14j"]
+[gd_scene load_steps=4 format=3 uid="uid://bxj0alvl3b14j"]
 
 [ext_resource type="Script" path="res://UI.gd" id="1_txiwy"]
+[ext_resource type="FontFile" uid="uid://7sdrfv2lpjwk" path="res://Fonts/Retro Gaming.ttf" id="2_n50mt"]
 
-[node name="UI" type="Control"]
-layout_mode = 3
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_82taw"]
+content_margin_left = 224.0
+content_margin_top = 44.0
+content_margin_right = 224.0
+content_margin_bottom = 44.0
+bg_color = Color(0.18, 0.18, 0.18, 0.627451)
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_color = Color(0.219608, 0.309804, 0.286275, 1)
+corner_radius_top_left = 200
+corner_radius_top_right = 200
+corner_radius_bottom_right = 200
+corner_radius_bottom_left = 200
+
+[node name="Dialog Box" type="Label"]
+process_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -306.0
+offset_right = 513.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_n50mt")
+theme_override_font_sizes/font_size = 171
+theme_override_styles/normal = SubResource("StyleBoxFlat_82taw")
+text = "Blablabla"
+autowrap_mode = 2
+script = ExtResource("1_txiwy")
+
+[node name="UI" type="Control" parent="."]
+process_mode = 3
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_txiwy")
-
-[node name="Dialog Box" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -214.0
-grow_horizontal = 2
-grow_vertical = 0
-text = "Blablabla"
-autowrap_mode = 2
-visible_characters = 0
-visible_ratio = 0.0
+size_flags_horizontal = 4

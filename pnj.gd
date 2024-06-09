@@ -2,8 +2,10 @@ extends CharacterBody2D
 
 @export var dialog = []
 
-func _on_ready() :
+signal pnjspeak(text)
+
+func _ready() :
 	$"/root/Global".pnjsID.append(self.get_instance_id())
 
-func speak(text) :
-	$UI.queuetext(text)
+func speak() :
+	emit_signal("pnjspeak", dialog)

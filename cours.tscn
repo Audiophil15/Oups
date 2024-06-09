@@ -22,12 +22,18 @@ position = Vector2(15383, 9974)
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(8486, 5035)
 zoom = Vector2(0.185, 0.185)
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
 
-[node name="UI" parent="." instance=ExtResource("5_pscon")]
+[node name="UI" parent="Camera2D" instance=ExtResource("5_pscon")]
+offset_left = -4792.0
+offset_top = 2157.0
+offset_right = 4847.0
+offset_bottom = 2887.0
 
 [node name="Door" parent="." instance=ExtResource("6_4lnru")]
 position = Vector2(15494, 5498)
 
 [node name="PNJ" parent="." instance=ExtResource("6_ydi4k")]
 position = Vector2(12112, 7672)
-dialog = ["Hello,", "World !"]
+dialog = ["Hello, World ! Je m'appelle Blablabla.", "Je suis content de rencontrer quelqu'un, ça n'arrive vraiment pas souvent.", "C'est curieux parfois, ce qui se passe...", "...", "Je suis moi-même arrivé ici par hasard, après une longue traversée...", "D'un point de vue de marin, naviguer est agréable, mais il semblerait que le Triangle des Bermudes serait un passage secret."]

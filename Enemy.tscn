@@ -64,11 +64,13 @@ radius = 223.0
 height = 1070.0
 
 [node name="Enemy" type="CharacterBody2D"]
+z_as_relative = false
+y_sort_enabled = true
 script = ExtResource("1_l76v0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_dckkc")
-animation = &"Idle"
+animation = &"Run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 246.5)
@@ -93,3 +95,5 @@ shape = SubResource("CapsuleShape2D_dxllu")
 [node name="Down" type="CollisionShape2D" parent="Detection"]
 position = Vector2(0, 784)
 shape = SubResource("CapsuleShape2D_e78t1")
+
+[connection signal="body_entered" from="Detection" to="." method="_on_detection_body_entered"]

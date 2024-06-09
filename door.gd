@@ -5,6 +5,7 @@ extends StaticBody2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$"/root/Global".doorsID.append(self.get_instance_id())
+	z_index = int(position.y)
 	pass # Replace with function body.
 
 

@@ -39,3 +39,7 @@ item = "Rouge à lèvre"
 
 [node name="Door" parent="." instance=ExtResource("6_21psr")]
 position = Vector2(9816, 3202)
+
+[connection signal="playerfound" from="Enemy" to="." method="playerfound"]
+[connection signal="playerfound" from="Enemy2" to="." method="playerfound"]
+[connection signal="playerfound" from="Enemy3" to="." method="playerfound"]
