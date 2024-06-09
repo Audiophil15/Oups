@@ -25,26 +25,30 @@ func _process(delta):
 	
 	velocity = Vector2(0,0)
 	$Label.visible = false
-
+	var dir = ""
 	
 	if Input.is_action_pressed("pl-right") :
 		velocity.x = 1
 		direction("right")
+		dir = "Right"
 	if Input.is_action_pressed("pl-left") :
 		velocity.x = -1
 		direction("left")
+		dir = "Left"
 	if Input.is_action_pressed("pl-down") :
 		velocity.y = 1
 		direction("down")
+		dir = "Down"
 	if Input.is_action_pressed("pl-up") :
 		velocity.y = -1
 		direction("up")
+		dir = "Up"
 	velocity = velocity.normalized()
 	
 	velocity *= delta*speed
 	
 	if velocity.length() != 0 :
-		$AnimatedSprite2D.play("Run")
+		$AnimatedSprite2D.play("Run_" + dir)
 	else :
 		$AnimatedSprite2D.play("Idle")
 

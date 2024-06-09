@@ -1,30 +1,25 @@
-[gd_scene load_steps=15 format=3 uid="uid://tf8himqjpgbl"]
+[gd_scene load_steps=22 format=3 uid="uid://ddp5s3uu6r1ac"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_wevxs"]
-[ext_resource type="Texture2D" uid="uid://by3nlghbi71cf" path="res://Art/Player/Player.png" id="2_5e4wm"]
-[ext_resource type="Texture2D" uid="uid://c30boj2f15gjb" path="res://Art/Textures/Grey.png" id="3_jsejs"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_id8lg"]
-atlas = ExtResource("2_5e4wm")
-region = Rect2(0, 0, 512, 768)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_f8t75"]
-atlas = ExtResource("2_5e4wm")
-region = Rect2(0, 0, 512, 768)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_q6ypu"]
-atlas = ExtResource("2_5e4wm")
-region = Rect2(512, 0, 512, 768)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5m5q1"]
-atlas = ExtResource("2_5e4wm")
-region = Rect2(1024, 0, 512, 768)
+[ext_resource type="Texture2D" uid="uid://qyqpo6uvxvl" path="res://Art/Player/Front_1.png" id="2_3v121"]
+[ext_resource type="Texture2D" uid="uid://bt05bublogkp6" path="res://Art/Textures/Grey.png" id="3_jsejs"]
+[ext_resource type="Texture2D" uid="uid://b7lavf5yo52k3" path="res://Art/Player/Front_2.png" id="4_gt7nx"]
+[ext_resource type="Texture2D" uid="uid://8sgcss17bi2h" path="res://Art/Player/Front_3.png" id="5_e7leo"]
+[ext_resource type="Texture2D" uid="uid://dk2j4axrqbqht" path="res://Art/Player/Right_1.png" id="6_8r410"]
+[ext_resource type="Texture2D" uid="uid://3lwkogrnguc3" path="res://Art/Player/Left_1.png" id="6_hu3pn"]
+[ext_resource type="Texture2D" uid="uid://dv4av1tll1wey" path="res://Art/Player/Left_2.png" id="7_8rypp"]
+[ext_resource type="Texture2D" uid="uid://cww0qgo1t5svb" path="res://Art/Player/Right_2.png" id="7_naowg"]
+[ext_resource type="Texture2D" uid="uid://c3sd1v3qu2jxo" path="res://Art/Player/Left_3.png" id="8_4b3qj"]
+[ext_resource type="Texture2D" uid="uid://0uxbdap7do0k" path="res://Art/Player/Right_3.png" id="8_sk8k8"]
+[ext_resource type="Texture2D" uid="uid://bfqvdx72add61" path="res://Art/Player/Back_1.png" id="9_wsckq"]
+[ext_resource type="Texture2D" uid="uid://0lwnnkjcxacy" path="res://Art/Player/Back_2.png" id="10_lir0u"]
+[ext_resource type="Texture2D" uid="uid://ds2s5ymreha07" path="res://Art/Player/Back_3.png" id="11_kgwiq"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dckkc"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_id8lg")
+"texture": ExtResource("2_3v121")
 }],
 "loop": true,
 "name": &"Idle",
@@ -32,16 +27,70 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_f8t75")
+"texture": ExtResource("4_gt7nx")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_q6ypu")
+"texture": ExtResource("2_3v121")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5m5q1")
+"texture": ExtResource("5_e7leo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_3v121")
 }],
 "loop": true,
-"name": &"Run",
+"name": &"Run_Down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_naowg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_8r410")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_sk8k8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_8r410")
+}],
+"loop": true,
+"name": &"Run_Left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_8rypp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_hu3pn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_4b3qj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_hu3pn")
+}],
+"loop": true,
+"name": &"Run_Right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_lir0u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_wsckq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_kgwiq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_wsckq")
+}],
+"loop": true,
+"name": &"Run_Up",
 "speed": 5.0
 }]
 
@@ -76,7 +125,7 @@ script = ExtResource("1_wevxs")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_dckkc")
-animation = &"Run"
+animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 246.5)
