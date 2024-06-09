@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://dn81kmfu54ntd"]
+[gd_scene load_steps=7 format=3 uid="uid://dn81kmfu54ntd"]
 
 [ext_resource type="Texture2D" uid="uid://uw8ewdd77636" path="res://Art/Stages/Bonsai 3.png" id="1_1s471"]
 [ext_resource type="Script" path="res://cantine.gd" id="1_s33ac"]
 [ext_resource type="PackedScene" uid="uid://tf8himqjpgbl" path="res://player.tscn" id="2_btque"]
 [ext_resource type="PackedScene" uid="uid://kf3kp1lfuh4b" path="res://Enemy.tscn" id="4_gfj30"]
+[ext_resource type="PackedScene" uid="uid://bxj0alvl3b14j" path="res://ui.tscn" id="5_tggcn"]
+[ext_resource type="PackedScene" uid="uid://bb0e4720yqkti" path="res://door.tscn" id="6_21psr"]
 
 [node name="Cantine" type="Node2D"]
 script = ExtResource("1_s33ac")
@@ -32,3 +34,8 @@ item = "Champi"
 [node name="Enemy3" parent="." instance=ExtResource("4_gfj30")]
 position = Vector2(7392, 6848)
 item = "Rouge à lèvre"
+
+[node name="UI" parent="." instance=ExtResource("5_tggcn")]
+
+[node name="Door" parent="." instance=ExtResource("6_21psr")]
+position = Vector2(9816, 3202)
