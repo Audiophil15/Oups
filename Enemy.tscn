@@ -21,7 +21,31 @@ animations = [{
 "texture": ExtResource("2_ajc4r")
 }],
 "loop": true,
-"name": &"Idle",
+"name": &"Idle_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_442el")
+}],
+"loop": true,
+"name": &"Idle_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_a0p4i")
+}],
+"loop": true,
+"name": &"Idle_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_wdi7m")
+}],
+"loop": true,
+"name": &"Idle_up",
 "speed": 5.0
 }, {
 "frames": [{
@@ -117,7 +141,7 @@ script = ExtResource("1_l76v0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_dckkc")
-animation = &"Run_up"
+animation = &"Idle_up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 246.5)
