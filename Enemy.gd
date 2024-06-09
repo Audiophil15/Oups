@@ -82,9 +82,9 @@ func _process(delta):
 	velocity *= delta*speed
 	
 	if velocity.length() != 0 :
-		$AnimatedSprite2D.play("Run")
+		$AnimatedSprite2D.play("Run_" + direction)
 	else :
-		$AnimatedSprite2D.play("Idle")
+		$AnimatedSprite2D.play("Idle_" + direction)
 
 	position+=velocity
 	move_and_slide()

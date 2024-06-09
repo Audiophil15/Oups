@@ -19,35 +19,40 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	
+
 	z_index = int(position.y)
-	
+
 	velocity = Vector2(0,0)
 	$Label.visible = false
+	var dir = ""
 
 	if Input.is_action_pressed("pl-right") :
 		velocity.x = 1
 		direction("right")
+		dir = "Right"
 	if Input.is_action_pressed("pl-left") :
 		velocity.x = -1
 		direction("left")
+		dir = "Left"
 	if Input.is_action_pressed("pl-down") :
 		velocity.y = 1
 		direction("down")
+		dir = "Down"
 	if Input.is_action_pressed("pl-up") :
 		velocity.y = -1
 		direction("up")
+		dir = "Up"
 	velocity = velocity.normalized()
-	
+
 	velocity *= delta*speed
-	
+
 	if velocity.length() != 0 :
-		$AnimatedSprite2D.play("Run")
+		$AnimatedSprite2D.play("Run_" + dir)
 	else :
 		$AnimatedSprite2D.play("Idle")
 
 	position+=velocity
-	
+
 	if len(stealable) :
 		$Label.text = "Steal"
 		$Label.visible = true
@@ -94,4 +99,4 @@ func direction(dir) :
 	$Detection/Left.disabled = (dir != "left")
 	$Detection/Down.disabled = (dir != "down")
 	$Detection/Up.disabled = (dir != "up")
-	
+
