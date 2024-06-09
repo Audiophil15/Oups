@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bb0e4720yqkti"]
 
-[ext_resource type="Texture2D" uid="uid://s52s8scufn0t" path="res://Art/Textures/Door.png" id="1_b7lfa"]
+[ext_resource type="Texture2D" uid="uid://c5was030pnaan" path="res://Art/Textures/Door.png" id="1_b7lfa"]
 [ext_resource type="Script" path="res://door.gd" id="1_tui4g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a8q4u"]

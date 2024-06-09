@@ -11,6 +11,7 @@ var speakable = []
 var doorinrange = []
 var items=[]
 var enemiesdetected
+var dir = "up"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -20,36 +21,34 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 
-	z_index = int(position.y)
+	#z_index = int(position.y)
 
 	velocity = Vector2(0,0)
+	
 	$Label.visible = false
-	var dir = ""
 
 	if Input.is_action_pressed("pl-right") :
 		velocity.x = 1
-		direction("right")
-		dir = "Right"
+		dir = "right"
 	if Input.is_action_pressed("pl-left") :
 		velocity.x = -1
-		direction("left")
-		dir = "Left"
+		dir = "left"
 	if Input.is_action_pressed("pl-down") :
 		velocity.y = 1
-		direction("down")
-		dir = "Down"
+		dir = "down"
 	if Input.is_action_pressed("pl-up") :
 		velocity.y = -1
-		direction("up")
-		dir = "Up"
+		dir = "up"
 	velocity = velocity.normalized()
 
 	velocity *= delta*speed
 
+	direction(dir)
+
 	if velocity.length() != 0 :
 		$AnimatedSprite2D.play("Run_" + dir)
 	else :
-		$AnimatedSprite2D.play("Idle")
+		$AnimatedSprite2D.play("Idle " + dir)
 
 	position+=velocity
 
@@ -68,12 +67,13 @@ func _process(delta):
 		$Label.text = "Speak"
 		$Label.visible = true
 		if Input.is_action_just_pressed("pl-steal") :
-			print("I want to speak to", speakable[-1])
+			#print("I want to speak to", speakable[-1])
 			emit_signal("speak", speakable[-1])
+
+	move_and_slide()
 
 	#print(stealable, items)
 	#print($"/root/Global".pnjsID)
-	move_and_slide()
 
 func _on_detection_body_entered(body):
 	if body.get_instance_id() in $"/root/Global".enemiesID :

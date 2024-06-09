@@ -1,14 +1,14 @@
 [gd_scene load_steps=4 format=3 uid="uid://bxj0alvl3b14j"]
 
 [ext_resource type="Script" path="res://UI.gd" id="1_txiwy"]
-[ext_resource type="FontFile" uid="uid://7sdrfv2lpjwk" path="res://Fonts/Retro Gaming.ttf" id="2_n50mt"]
+[ext_resource type="FontFile" uid="uid://d023x1e0vsky2" path="res://Fonts/Retro Gaming.ttf" id="2_n50mt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_82taw"]
 content_margin_left = 224.0
 content_margin_top = 44.0
 content_margin_right = 224.0
 content_margin_bottom = 44.0
-bg_color = Color(0.18, 0.18, 0.18, 0.627451)
+bg_color = Color(0.180392, 0.180392, 0.180392, 0.717647)
 border_width_left = 15
 border_width_top = 15
 border_width_right = 15
@@ -21,6 +21,7 @@ corner_radius_bottom_left = 200
 
 [node name="Dialog Box" type="Label"]
 process_mode = 3
+z_index = 4096
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0

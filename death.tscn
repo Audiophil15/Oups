@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://mfmb6vxovsdx"]
 
-[ext_resource type="Texture2D" uid="uid://uw8ewdd77636" path="res://Art/Stages/Bonsai 3.png" id="1_078o6"]
+[ext_resource type="Texture2D" uid="uid://dokqf70mn317s" path="res://Art/Stages/End.jpg" id="1_aunys"]
 
 [node name="Death" type="Control"]
 layout_mode = 3
@@ -15,9 +15,13 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -63.0
+offset_top = -181.0
+offset_right = 65.0
+offset_bottom = 275.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_078o6")
+texture = ExtResource("1_aunys")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0

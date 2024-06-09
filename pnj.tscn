@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://bq1mu16kx43tp"]
 
 [ext_resource type="Script" path="res://pnj.gd" id="1_k1vnr"]
-[ext_resource type="Texture2D" uid="uid://by3nlghbi71cf" path="res://Art/Player/Player.png" id="2_tgn6w"]
+[ext_resource type="Texture2D" uid="uid://d0tsnvp7q6pe" path="res://Art/Player/Player.png" id="2_tgn6w"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_id8lg"]
 atlas = ExtResource("2_tgn6w")
@@ -64,17 +64,21 @@ radius = 223.0
 height = 1070.0
 
 [node name="PNJ" type="CharacterBody2D"]
+z_as_relative = false
+y_sort_enabled = true
 script = ExtResource("1_k1vnr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -247)
 sprite_frames = SubResource("SpriteFrames_dckkc")
 animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 246.5)
+position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_hxh2l")
 
 [node name="Detection" type="Area2D" parent="."]
+position = Vector2(0, -247)
 
 [node name="Left" type="CollisionShape2D" parent="Detection"]
 position = Vector2(-540, 250)

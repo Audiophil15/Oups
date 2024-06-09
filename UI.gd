@@ -19,15 +19,16 @@ func _process(delta):
 		self.text = queue.pop_front()
 		charprop = 1.0/len(self.text)
 		self.visible = true
-	if self.visible_ratio < 1 and self.text != "" :
-		#self.visible_ratio = 1
-		self.visible_ratio += charprop
-		get_tree().paused = true
-	if self.visible_ratio >= 1 and Input.is_action_just_pressed("ui_accept") :
+	if self.visible_ratio >= 1 and Input.is_action_just_pressed("pl-steal") :
 		self.text = ""
 		self.visible_ratio = 0
 		self.visible = false
 		get_tree().paused = false
+	if self.visible_ratio < 1 and self.text != "" :
+		self.visible_ratio += charprop
+		get_tree().paused = true
+		#if Input.is_action_just_pressed("pl-steal") :
+			#self.visible_ratio = 1
 		
 
 func queuetext(text) :

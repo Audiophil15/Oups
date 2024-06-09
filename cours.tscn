@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://bpe372dl6b45c"]
 
 [ext_resource type="Script" path="res://cours.gd" id="1_ib73f"]
-[ext_resource type="Texture2D" uid="uid://uw8ewdd77636" path="res://Art/Stages/Bonsai 3.png" id="2_indqd"]
-[ext_resource type="PackedScene" uid="uid://tf8himqjpgbl" path="res://player.tscn" id="3_t2f3q"]
+[ext_resource type="Texture2D" uid="uid://drmrxh5abplt2" path="res://Art/Stages/Bonsai 3.png" id="2_indqd"]
+[ext_resource type="PackedScene" uid="uid://ddp5s3uu6r1ac" path="res://player.tscn" id="3_t2f3q"]
 [ext_resource type="PackedScene" uid="uid://bxj0alvl3b14j" path="res://ui.tscn" id="5_pscon"]
 [ext_resource type="PackedScene" uid="uid://bb0e4720yqkti" path="res://door.tscn" id="6_4lnru"]
 [ext_resource type="PackedScene" uid="uid://bq1mu16kx43tp" path="res://pnj.tscn" id="6_ydi4k"]
@@ -11,18 +11,20 @@
 script = ExtResource("1_ib73f")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_right = 27549.0
-offset_bottom = 15430.0
+offset_right = 13427.0
+offset_bottom = 7861.0
 texture = ExtResource("2_indqd")
-metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("3_t2f3q")]
-position = Vector2(15383, 9974)
+position = Vector2(7357, 7180)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(8486, 5035)
+position = Vector2(8791, 7118)
 zoom = Vector2(0.185, 0.185)
-position_smoothing_enabled = true
+limit_left = 0
+limit_top = 0
+limit_right = 13395
+limit_bottom = 7800
 position_smoothing_speed = 10.0
 
 [node name="UI" parent="Camera2D" instance=ExtResource("5_pscon")]
@@ -32,8 +34,8 @@ offset_right = 4847.0
 offset_bottom = 2887.0
 
 [node name="Door" parent="." instance=ExtResource("6_4lnru")]
-position = Vector2(15494, 5498)
+position = Vector2(9144, 1485)
 
 [node name="PNJ" parent="." instance=ExtResource("6_ydi4k")]
-position = Vector2(12112, 7672)
+position = Vector2(3731, 4116)
 dialog = ["Hello, World ! Je m'appelle Blablabla.", "Je suis content de rencontrer quelqu'un, ça n'arrive vraiment pas souvent.", "C'est curieux parfois, ce qui se passe...", "...", "Je suis moi-même arrivé ici par hasard, après une longue traversée...", "D'un point de vue de marin, naviguer est agréable, mais il semblerait que le Triangle des Bermudes serait un passage secret."]

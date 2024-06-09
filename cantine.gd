@@ -13,11 +13,17 @@ func _process(delta):
 	pass
 
 func playerstoleitem(item) :
+	$Camera2D/UI.queuetext("Item stolen !")
+	$Camera2D/UI.queuetext("You found a "+item+".")
 	if item == "key" :
 		$Door.unlocked = true
 
 func dooropened() :
-	get_tree().change_scene_to_file("res://cours.tscn")
+	if $Door.unlocked :
+		get_tree().change_scene_to_file("res://cours.tscn")
+	else :
+		$Camera2D/UI.queuetext("You need the key !")
 
 func playerfound() :
+	"Signal player is found !"
 	get_tree().change_scene_to_file("res://death.tscn")

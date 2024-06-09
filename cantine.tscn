@@ -1,44 +1,52 @@
 [gd_scene load_steps=7 format=3 uid="uid://dn81kmfu54ntd"]
 
-[ext_resource type="Texture2D" uid="uid://uw8ewdd77636" path="res://Art/Stages/Bonsai 3.png" id="1_1s471"]
 [ext_resource type="Script" path="res://cantine.gd" id="1_s33ac"]
-[ext_resource type="PackedScene" uid="uid://tf8himqjpgbl" path="res://player.tscn" id="2_btque"]
-[ext_resource type="PackedScene" uid="uid://kf3kp1lfuh4b" path="res://Enemy.tscn" id="4_gfj30"]
+[ext_resource type="PackedScene" uid="uid://ddp5s3uu6r1ac" path="res://player.tscn" id="2_btque"]
+[ext_resource type="Texture2D" uid="uid://du4v6gjbavhlp" path="res://Art/Stages/Ground.png" id="2_n1xyy"]
+[ext_resource type="PackedScene" uid="uid://d1k5efkk7v1cw" path="res://Enemy.tscn" id="4_gfj30"]
 [ext_resource type="PackedScene" uid="uid://bxj0alvl3b14j" path="res://ui.tscn" id="5_tggcn"]
 [ext_resource type="PackedScene" uid="uid://bb0e4720yqkti" path="res://door.tscn" id="6_21psr"]
 
 [node name="Cantine" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_s33ac")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_right = 27549.0
-offset_bottom = 15430.0
-texture = ExtResource("1_1s471")
-metadata/_edit_lock_ = true
+offset_right = 18023.0
+offset_bottom = 10210.0
+texture = ExtResource("2_n1xyy")
 
 [node name="Player" parent="." instance=ExtResource("2_btque")]
-position = Vector2(8678, 4507)
+position = Vector2(9278, 8257)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(8486, 5035)
+position = Vector2(12817, 7212)
 zoom = Vector2(0.185, 0.185)
+limit_left = 0
+limit_top = 0
+limit_right = 17950
+limit_bottom = 10125
+
+[node name="UI" parent="Camera2D" instance=ExtResource("5_tggcn")]
+offset_left = -4792.0
+offset_top = 2157.0
+offset_right = 4847.0
+offset_bottom = 2887.0
 
 [node name="Enemy" parent="." instance=ExtResource("4_gfj30")]
-position = Vector2(12168, 4292)
+position = Vector2(14212, 7533)
 item = "key"
 
 [node name="Enemy2" parent="." instance=ExtResource("4_gfj30")]
-position = Vector2(10717, 6328)
-item = "Champi"
+position = Vector2(12547, 3382)
+item = "meuchroom"
 
 [node name="Enemy3" parent="." instance=ExtResource("4_gfj30")]
-position = Vector2(7392, 6848)
-item = "Rouge à lèvre"
-
-[node name="UI" parent="." instance=ExtResource("5_tggcn")]
+position = Vector2(2378, 6193)
+item = "lipstick"
 
 [node name="Door" parent="." instance=ExtResource("6_21psr")]
-position = Vector2(9816, 3202)
+position = Vector2(5092, 2542)
 
 [connection signal="playerfound" from="Enemy" to="." method="playerfound"]
 [connection signal="playerfound" from="Enemy2" to="." method="playerfound"]

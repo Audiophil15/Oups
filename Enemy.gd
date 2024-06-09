@@ -43,7 +43,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	
-	z_index = int(position.y)
+	#z_index = int(position.y)
 	
 	velocity = Vector2(0,0)
 	
@@ -68,7 +68,7 @@ func _process(delta):
 	if direction == "up" :
 		$Detection/Up.disabled = false
 
-	if walking == "walking" :
+	if self.walking == "walking" :
 		if direction == "right" :
 			velocity.x = 1
 		if direction == "left" :
@@ -82,11 +82,13 @@ func _process(delta):
 	velocity *= delta*speed
 	
 	if velocity.length() != 0 :
+		#print("Run_" + direction)
 		$AnimatedSprite2D.play("Run_" + direction)
 	else :
 		$AnimatedSprite2D.play("Idle_" + direction)
 
 	position+=velocity
+
 	move_and_slide()
 
 func getStolen() :
@@ -96,7 +98,7 @@ func getStolen() :
 
 
 func _on_detection_body_entered(body):
-	print(body, " detected !")
+	print(self.get_instance_id(), " : ", body.get_instance_id(), " detected !")
 	if body.get_instance_id() == $"/root/Global".playerID :
 		print("player found !")
 		emit_signal("playerfound")

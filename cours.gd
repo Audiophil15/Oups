@@ -3,7 +3,6 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print($PNJ)
 	$Player.dooropened.connect(dooropened)
 	$Player.speak.connect(pnjdialog)
 	pass # Replace with function body.
@@ -16,7 +15,7 @@ func _process(delta):
 	pass
 
 func dooropened() :
-	get_tree().change_scene_to_file("res://cantine.tscn")
+	get_tree().change_scene_to_file("res://death.tscn")
 
 func pnjdialog(pnj) :
 	#print("pnj talk")
